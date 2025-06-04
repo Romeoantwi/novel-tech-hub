@@ -3,17 +3,17 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const TrackRecord = () => {
   const achievements = [
-    { number: "500+", label: "Projects Delivered", description: "Successfully completed across various industries" },
-    { number: "98%", label: "Client Satisfaction", description: "Consistently exceeding expectations" },
-    { number: "50+", label: "Enterprise Clients", description: "Fortune 500 companies trust our solutions" },
+    { number: "50+", label: "Tech Professionals", description: "Growing network of skilled developers and specialists" },
+    { number: "95%", label: "Project Success Rate", description: "High-quality deliveries from our network" },
     { number: "24/7", label: "Support Available", description: "Round-the-clock technical assistance" },
+    { number: "60%", label: "Revenue Share", description: "Fair compensation for our network members" },
   ];
 
   const milestones = [
-    { year: "2024", title: "AI Innovation Award", description: "Recognized for breakthrough machine learning platform" },
-    { year: "2023", title: "50M+ Users Reached", description: "Our applications now serve over 50 million users globally" },
-    { year: "2022", title: "Series B Funding", description: "Secured $25M to accelerate product development" },
-    { year: "2021", title: "ISO 27001 Certified", description: "Achieved highest security and compliance standards" },
+    { year: "2024", title: "Network Launch", description: "Started building our tech talent network with initial focus on software development" },
+    { year: "2024", title: "First Projects", description: "Successfully delivered initial projects with our network partners" },
+    { year: "2024", title: "Growing Portfolio", description: "Expanding expertise areas to include cybersecurity and networking" },
+    { year: "2024", title: "Quality Standards", description: "Established rigorous vetting process for network members" },
   ];
 
   return (
@@ -21,10 +21,10 @@ const TrackRecord = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Our <span className="text-blue-400">Track Record</span>
+            Our <span className="text-blue-400">Progress</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Numbers that speak for themselves - a proven history of delivering exceptional results
+            Building a strong foundation with talented professionals and successful project deliveries
           </p>
         </div>
 
@@ -49,7 +49,7 @@ const TrackRecord = () => {
 
         {/* Milestones */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Key Milestones</h3>
+          <h3 className="text-3xl font-bold text-white text-center mb-12">Our Journey</h3>
           <div className="space-y-8">
             {milestones.map((milestone, index) => (
               <div key={index} className="flex items-start space-x-6">
