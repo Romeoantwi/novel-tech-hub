@@ -1,6 +1,7 @@
 
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import ApplicationForm from "@/components/ApplicationForm";
 import Team from "@/components/Team";
 import TrackRecord from "@/components/TrackRecord";
 import Services from "@/components/Services";
@@ -13,6 +14,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       <Header />
       <Hero />
+      <ApplicationForm />
       <Team />
       <TrackRecord />
       <Services />

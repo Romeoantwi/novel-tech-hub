@@ -20,32 +20,48 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-          Innovation That
+          Tech Talent
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-            Transforms
+            Network
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Novel Technologies delivers cutting-edge solutions that revolutionize how businesses operate. 
-          We turn complex challenges into elegant, scalable technology solutions.
+        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+          Join Novel Technologies' exclusive network of tech professionals. Get matched with high-paying 
+          projects in your expertise area and earn 60% of project revenue while we handle client acquisition.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button 
             size="lg" 
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg"
-            onClick={() => scrollToSection("services")}
+            onClick={() => scrollToSection("apply")}
           >
-            Explore Our Services
+            Apply to Join Network
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
             className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-4 text-lg"
-            onClick={() => scrollToSection("contact")}
+            onClick={() => scrollToSection("services")}
           >
-            Get In Touch
+            View Expertise Areas
           </Button>
+        </div>
+        
+        {/* Key Benefits */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="bg-slate-800/50 p-6 rounded-lg">
+            <h3 className="text-xl font-bold text-blue-400 mb-2">60% Revenue Share</h3>
+            <p className="text-gray-300">Earn majority of project revenue while we handle client acquisition</p>
+          </div>
+          <div className="bg-slate-800/50 p-6 rounded-lg">
+            <h3 className="text-xl font-bold text-blue-400 mb-2">Flexible Work</h3>
+            <p className="text-gray-300">Work on projects that match your schedule and expertise</p>
+          </div>
+          <div className="bg-slate-800/50 p-6 rounded-lg">
+            <h3 className="text-xl font-bold text-blue-400 mb-2">No Client Hunting</h3>
+            <p className="text-gray-300">Focus on what you do best while we bring the projects to you</p>
+          </div>
         </div>
       </div>
     </section>

@@ -17,9 +17,10 @@ const Header = () => {
 
   const menuItems = [
     { label: "Home", id: "hero" },
+    { label: "Apply", id: "apply" },
     { label: "Team", id: "team" },
+    { label: "Expertise", id: "services" },
     { label: "Track Record", id: "track-record" },
-    { label: "Services", id: "services" },
     { label: "About", id: "about" },
     { label: "Contact", id: "contact" },
   ];
@@ -42,8 +43,11 @@ const Header = () => {
               {item.label}
             </button>
           ))}
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-            Get Started
+          <Button 
+            className="bg-blue-600 hover:bg-blue-700 text-white"
+            onClick={() => scrollToSection("apply")}
+          >
+            Join Network
           </Button>
         </div>
 
@@ -65,8 +69,11 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white mt-4">
-                Get Started
+              <Button 
+                className="bg-blue-600 hover:bg-blue-700 text-white mt-4"
+                onClick={() => scrollToSection("apply")}
+              >
+                Join Network
               </Button>
             </div>
           </SheetContent>
