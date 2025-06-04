@@ -17,34 +17,41 @@ const Team = () => {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
     {
       id: 1,
+      name: "Romeo Paa-Kwesi Antwi",
+      role: "Chief Executive Officer",
+      image: null,
+      bio: "Visionary leader building innovative tech talent networks and connecting professionals with opportunities"
+    },
+    {
+      id: 2,
       name: "Sarah Johnson",
       role: "Chief Technology Officer",
       image: null,
       bio: "Leading innovation with 15+ years in enterprise software development"
     },
     {
-      id: 2,
+      id: 3,
       name: "Michael Chen",
       role: "Lead AI Engineer",
       image: null,
       bio: "Pioneering machine learning solutions for complex business challenges"
     },
     {
-      id: 3,
+      id: 4,
       name: "Emily Rodriguez",
       role: "Senior Full-Stack Developer",
       image: null,
       bio: "Expert in scalable web applications and cloud architecture"
     },
     {
-      id: 4,
+      id: 5,
       name: "David Kim",
       role: "DevOps Engineer",
       image: null,
       bio: "Ensuring seamless deployment and infrastructure optimization"
     },
     {
-      id: 5,
+      id: 6,
       name: "Lisa Thompson",
       role: "UX/UI Designer",
       image: null,
@@ -84,7 +91,7 @@ const Team = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
           {teamMembers.map((member) => (
             <Card key={member.id} className="bg-slate-900/80 border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
               <CardContent className="p-6 text-center">
