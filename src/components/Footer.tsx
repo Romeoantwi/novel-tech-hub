@@ -45,10 +45,9 @@ const Footer = () => {
               Your trusted partner in digital transformation.
             </p>
             <div className="text-gray-400">
-              <p>123 Innovation Drive</p>
-              <p>Tech City, TC 12345</p>
+              <p>Accra, Ghana</p>
               <p className="mt-2">contact@noveltechnologies.com</p>
-              <p>+1 (555) 123-4567</p>
+              <p>+233 546906739</p>
             </div>
           </div>
 

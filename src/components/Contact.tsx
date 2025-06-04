@@ -32,9 +32,9 @@ const Contact = () => {
 
   const contactInfo = [
     { label: "Email", value: "contact@noveltechnologies.com" },
-    { label: "Phone", value: "+1 (555) 123-4567" },
-    { label: "Address", value: "123 Innovation Drive, Tech City, TC 12345" },
-    { label: "Business Hours", value: "Monday - Friday: 9:00 AM - 6:00 PM" }
+    { label: "Phone", value: "+233 546906739" },
+    { label: "Address", value: "Accra, Ghana" },
+    { label: "Business Hours", value: "Monday - Friday: 9:00 AM - 6:00 PM (GMT)" }
   ];
 
   return (
