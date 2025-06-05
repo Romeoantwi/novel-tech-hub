@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -37,16 +36,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="text-2xl font-bold text-white mb-4">
-              <span className="text-blue-400">Novel</span> Technologies
+            <div className="text-2xl font-bold text-white mb-2">
+              <span className="text-blue-400">APEX</span> Technologies
             </div>
+            <p className="text-sm text-gray-500 mb-4">Advanced Professional Excellence Exchange</p>
             <p className="text-gray-400 mb-6">
               Transforming businesses through innovative technology solutions. 
               Your trusted partner in digital transformation.
             </p>
             <div className="text-gray-400">
               <p>Accra, Ghana</p>
-              <p className="mt-2">contact@noveltechnologies.com</p>
+              <p className="mt-2">contact@apextechnologies.com</p>
               <p>+233 546906739</p>
             </div>
           </div>
@@ -105,7 +105,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} Novel Technologies. All rights reserved.
+            © {currentYear} APEX Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm">

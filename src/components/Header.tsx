@@ -29,7 +29,8 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="text-2xl font-bold text-white">
-          <span className="text-blue-400">Novel</span> Technologies
+          <span className="text-blue-400">APEX</span> Technologies
+          <div className="text-xs text-gray-400 font-normal">Advanced Professional Excellence Exchange</div>
         </div>
 
         {/* Desktop Navigation */}
@@ -38,13 +39,13 @@ const Header = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium"
             >
               {item.label}
             </button>
           ))}
           <Button 
-            className="bg-blue-600 hover:bg-blue-700 text-white"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
             onClick={() => scrollToSection("apply")}
           >
             Join Network
@@ -64,13 +65,13 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 text-left font-medium"
                 >
                   {item.label}
                 </button>
               ))}
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white mt-4"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white mt-4"
                 onClick={() => scrollToSection("apply")}
               >
                 Join Network
