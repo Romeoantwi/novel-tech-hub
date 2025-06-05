@@ -2,10 +2,12 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import PersonalInfoForm from "./forms/PersonalInfoForm";
+import ProfessionalInfoForm from "./forms/ProfessionalInfoForm";
+import SocialLinksForm from "./forms/SocialLinksForm";
+import CoverLetterForm from "./forms/CoverLetterForm";
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -92,28 +94,12 @@ const ApplicationForm = () => {
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-
-  const expertiseAreas = [
-    "Software Development",
-    "Web Development",
-    "Mobile App Development",
-    "Cyber Security",
-    "Network Administration",
-    "Cloud Architecture",
-    "DevOps",
-    "Data Science",
-    "AI/Machine Learning",
-    "UI/UX Design",
-    "Database Administration",
-    "Quality Assurance",
-    "Other"
-  ];
 
   return (
     <section id="apply" className="py-20 bg-slate-900/30">
@@ -144,119 +130,25 @@ const ApplicationForm = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-300 mb-2">Full Name *</label>
-                    <Input
-                      name="fullName"
-                      placeholder="Your full name"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Email *</label>
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                      required
-                    />
-                  </div>
-                </div>
+                <PersonalInfoForm 
+                  formData={formData} 
+                  onChange={handleInputChange} 
+                />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-300 mb-2">Phone Number *</label>
-                    <Input
-                      name="phone"
-                      placeholder="+233 123 456 789"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Primary Expertise *</label>
-                    <select
-                      name="expertise"
-                      value={formData.expertise}
-                      onChange={(e) => setFormData(prev => ({ ...prev, expertise: e.target.value }))}
-                      className="w-full h-10 rounded-md border border-slate-600 bg-slate-800 text-white px-3 py-2"
-                      required
-                    >
-                      <option value="">Select your expertise</option>
-                      {expertiseAreas.map((area) => (
-                        <option key={area} value={area}>{area}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
+                <ProfessionalInfoForm 
+                  formData={formData} 
+                  onChange={handleInputChange} 
+                />
 
-                <div>
-                  <label className="block text-gray-300 mb-2">Years of Experience *</label>
-                  <Input
-                    name="experience"
-                    placeholder="e.g., 5 years"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                    required
-                  />
-                </div>
+                <SocialLinksForm 
+                  formData={formData} 
+                  onChange={handleInputChange} 
+                />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-300 mb-2">Portfolio/Website</label>
-                    <Input
-                      name="portfolio"
-                      placeholder="https://yourportfolio.com"
-                      value={formData.portfolio}
-                      onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">LinkedIn Profile</label>
-                    <Input
-                      name="linkedIn"
-                      placeholder="https://linkedin.com/in/yourname"
-                      value={formData.linkedIn}
-                      onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-gray-300 mb-2">GitHub Profile</label>
-                  <Input
-                    name="github"
-                    placeholder="https://github.com/yourusername"
-                    value={formData.github}
-                    onChange={handleInputChange}
-                    className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-300 mb-2">Cover Letter *</label>
-                  <Textarea
-                    name="coverLetter"
-                    placeholder="Tell us about your skills, experience, and why you want to join APEX Technologies..."
-                    rows={6}
-                    value={formData.coverLetter}
-                    onChange={handleInputChange}
-                    className="bg-slate-800 border-slate-600 text-white placeholder-gray-400 resize-none"
-                    required
-                  />
-                </div>
+                <CoverLetterForm 
+                  formData={formData} 
+                  onChange={handleInputChange} 
+                />
 
                 <Button 
                   type="submit" 
