@@ -2,16 +2,23 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Settings } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    setIsOpen(false);
+  };
+
+  const handleAdminAccess = () => {
+    navigate('/admin');
     setIsOpen(false);
   };
 
@@ -50,6 +57,15 @@ const Header = () => {
           >
             Join Network
           </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleAdminAccess}
+            className="text-gray-300 hover:text-blue-400"
+            title="Admin Access"
+          >
+            <Settings className="h-5 w-5" />
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -75,6 +91,14 @@ const Header = () => {
                 onClick={() => scrollToSection("apply")}
               >
                 Join Network
+              </Button>
+              <Button
+                variant="ghost"
+                onClick={handleAdminAccess}
+                className="text-gray-300 hover:text-blue-400 justify-start"
+              >
+                <Settings className="h-5 w-5 mr-2" />
+                Admin Access
               </Button>
             </div>
           </SheetContent>

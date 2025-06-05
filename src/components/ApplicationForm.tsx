@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -18,24 +19,77 @@ const ApplicationForm = () => {
     github: "",
     coverLetter: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Application Submitted!",
-      description: "We'll review your application and get back to you within 48 hours.",
-    });
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      expertise: "",
-      experience: "",
-      portfolio: "",
-      linkedIn: "",
-      github: "",
-      coverLetter: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Insert application into database
+      const { error } = await supabase
+        .from('applications')
+        .insert({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          expertise: formData.expertise,
+          experience: formData.experience,
+          portfolio: formData.portfolio || null,
+          linkedin: formData.linkedIn || null,
+          github: formData.github || null,
+          cover_letter: formData.coverLetter
+        });
+
+      if (error) {
+        console.error('Error submitting application:', error);
+        toast({
+          title: "Error",
+          description: "There was an error submitting your application. Please try again.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Send email notification
+      try {
+        await supabase.functions.invoke('send-application-email', {
+          body: {
+            applicantData: formData
+          }
+        });
+      } catch (emailError) {
+        console.error('Error sending email notification:', emailError);
+        // Don't fail the entire submission if email fails
+      }
+
+      toast({
+        title: "Application Submitted!",
+        description: "We'll review your application and get back to you within 48 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        expertise: "",
+        experience: "",
+        portfolio: "",
+        linkedIn: "",
+        github: "",
+        coverLetter: ""
+      });
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -69,7 +123,7 @@ const ApplicationForm = () => {
             Join Our <span className="text-blue-400">Tech Network</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Are you a skilled tech professional? Join Novel Technologies and earn 60% of project revenue 
+            Are you a skilled tech professional? Join APEX Technologies and earn 60% of project revenue 
             while working on exciting projects in your area of expertise.
           </p>
           <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-6 rounded-lg max-w-2xl mx-auto">
@@ -121,7 +175,7 @@ const ApplicationForm = () => {
                     <label className="block text-gray-300 mb-2">Phone Number *</label>
                     <Input
                       name="phone"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+233 123 456 789"
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
@@ -195,7 +249,7 @@ const ApplicationForm = () => {
                   <label className="block text-gray-300 mb-2">Cover Letter *</label>
                   <Textarea
                     name="coverLetter"
-                    placeholder="Tell us about your skills, experience, and why you want to join Novel Technologies..."
+                    placeholder="Tell us about your skills, experience, and why you want to join APEX Technologies..."
                     rows={6}
                     value={formData.coverLetter}
                     onChange={handleInputChange}
@@ -204,8 +258,12 @@ const ApplicationForm = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-3">
-                  Submit Application
+                <Button 
+                  type="submit" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-3"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
               </form>
             </CardContent>
