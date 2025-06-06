@@ -57,7 +57,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: 'APEX Technologies <noreply@apextechnologies.com>',
-        to: ['romeoantwi@gmail.com'],
+        to: ['romeoantwi15@gmail.com'],
         subject: `New Application: ${applicantData.fullName} - ${applicantData.expertise}`,
         html: emailHtml,
       }),

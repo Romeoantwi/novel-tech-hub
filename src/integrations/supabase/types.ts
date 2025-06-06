@@ -128,6 +128,54 @@ export type Database = {
         }
         Relationships: []
       }
+      driver_profiles: {
+        Row: {
+          created_at: string
+          current_latitude: number | null
+          current_longitude: number | null
+          id: string
+          is_available: boolean | null
+          license_number: string
+          rating: number | null
+          total_deliveries: number | null
+          updated_at: string
+          user_id: string
+          vehicle_model: string | null
+          vehicle_plate_number: string | null
+          vehicle_type: string
+        }
+        Insert: {
+          created_at?: string
+          current_latitude?: number | null
+          current_longitude?: number | null
+          id?: string
+          is_available?: boolean | null
+          license_number: string
+          rating?: number | null
+          total_deliveries?: number | null
+          updated_at?: string
+          user_id: string
+          vehicle_model?: string | null
+          vehicle_plate_number?: string | null
+          vehicle_type: string
+        }
+        Update: {
+          created_at?: string
+          current_latitude?: number | null
+          current_longitude?: number | null
+          id?: string
+          is_available?: boolean | null
+          license_number?: string
+          rating?: number | null
+          total_deliveries?: number | null
+          updated_at?: string
+          user_id?: string
+          vehicle_model?: string | null
+          vehicle_plate_number?: string | null
+          vehicle_type?: string
+        }
+        Relationships: []
+      }
       learning_sessions: {
         Row: {
           completed_at: string | null
@@ -249,27 +297,223 @@ export type Database = {
         }
         Relationships: []
       }
+      notifications: {
+        Row: {
+          created_at: string
+          id: string
+          is_read: boolean | null
+          message: string
+          order_id: string | null
+          recipient_id: string
+          sender_id: string | null
+          title: string
+          type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          message: string
+          order_id?: string | null
+          recipient_id: string
+          sender_id?: string | null
+          title: string
+          type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          order_id?: string | null
+          recipient_id?: string
+          sender_id?: string | null
+          title?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notifications_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          created_at: string
+          customer_id: string
+          customer_phone: string | null
+          delivery_address: string
+          delivery_fee: number
+          driver_id: string | null
+          estimated_delivery_time: string | null
+          estimated_prep_time: number | null
+          id: string
+          items: Json
+          payment_method: string | null
+          payment_status: string | null
+          restaurant_id: string
+          special_instructions: string | null
+          status: string
+          stripe_payment_intent_id: string | null
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_id: string
+          customer_phone?: string | null
+          delivery_address: string
+          delivery_fee?: number
+          driver_id?: string | null
+          estimated_delivery_time?: string | null
+          estimated_prep_time?: number | null
+          id?: string
+          items: Json
+          payment_method?: string | null
+          payment_status?: string | null
+          restaurant_id?: string
+          special_instructions?: string | null
+          status?: string
+          stripe_payment_intent_id?: string | null
+          total_amount: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string
+          customer_phone?: string | null
+          delivery_address?: string
+          delivery_fee?: number
+          driver_id?: string | null
+          estimated_delivery_time?: string | null
+          estimated_prep_time?: number | null
+          id?: string
+          items?: Json
+          payment_method?: string | null
+          payment_status?: string | null
+          restaurant_id?: string
+          special_instructions?: string | null
+          status?: string
+          stripe_payment_intent_id?: string | null
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      payment_methods: {
+        Row: {
+          account_name: string
+          account_number: string
+          created_at: string
+          id: string
+          is_default: boolean | null
+          provider_name: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          account_name: string
+          account_number: string
+          created_at?: string
+          id?: string
+          is_default?: boolean | null
+          provider_name: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          account_name?: string
+          account_number?: string
+          created_at?: string
+          id?: string
+          is_default?: boolean | null
+          provider_name?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string | null
+          id: string
+          order_id: string | null
+          payment_method: string
+          status: string
+          stripe_payment_intent_id: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string | null
+          id?: string
+          order_id?: string | null
+          payment_method: string
+          status?: string
+          stripe_payment_intent_id?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string | null
+          id?: string
+          order_id?: string | null
+          payment_method?: string
+          status?: string
+          stripe_payment_intent_id?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
           created_at: string
           full_name: string | null
+          ghana_card_number: string | null
           id: string
+          phone_number: string | null
           updated_at: string
+          user_type: string | null
         }
         Insert: {
           avatar_url?: string | null
           created_at?: string
           full_name?: string | null
+          ghana_card_number?: string | null
           id: string
+          phone_number?: string | null
           updated_at?: string
+          user_type?: string | null
         }
         Update: {
           avatar_url?: string | null
           created_at?: string
           full_name?: string | null
+          ghana_card_number?: string | null
           id?: string
+          phone_number?: string | null
           updated_at?: string
+          user_type?: string | null
         }
         Relationships: []
       }

@@ -29,7 +29,7 @@ const Admin = () => {
       }
 
       // Check if user is the admin (CEO)
-      if (user.email !== 'romeoantwi@gmail.com') {
+      if (user.email !== 'romeoantwi15@gmail.com') {
         toast({
           title: "Access Denied",
           description: "You don't have permission to access the admin panel.",
