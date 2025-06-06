@@ -11,7 +11,7 @@ interface ProfessionalInfoFormProps {
 
 const expertiseAreas = [
   "Software Development",
-  "Web Development",
+  "Web Development", 
   "Mobile App Development",
   "Cyber Security",
   "Network Administration",
@@ -34,7 +34,7 @@ const ProfessionalInfoForm = ({ formData, onChange }: ProfessionalInfoFormProps)
           name="expertise"
           value={formData.expertise}
           onChange={onChange}
-          className="w-full h-10 rounded-md border border-slate-600 bg-slate-800 text-white px-3 py-2"
+          className="w-full h-10 rounded-md border border-slate-600 bg-slate-800 text-white px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           required
         >
           <option value="">Select your expertise</option>
@@ -50,7 +50,7 @@ const ProfessionalInfoForm = ({ formData, onChange }: ProfessionalInfoFormProps)
           placeholder="e.g., 5 years"
           value={formData.experience}
           onChange={onChange}
-          className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
+          className="bg-slate-800 border-slate-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           required
         />
       </div>

@@ -1,9 +1,7 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Upload, Users } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
+import { Users } from "lucide-react";
 
 interface TeamMember {
   id: number;
@@ -14,7 +12,7 @@ interface TeamMember {
 }
 
 const Team = () => {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
+  const [teamMembers] = useState<TeamMember[]>([
     {
       id: 1,
       name: "Romeo Paa-Kwesi Antwi",
@@ -59,26 +57,6 @@ const Team = () => {
     }
   ]);
 
-  const handleImageUpload = (memberId: number, event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const imageUrl = e.target?.result as string;
-        setTeamMembers(prev => 
-          prev.map(member => 
-            member.id === memberId ? { ...member, image: imageUrl } : member
-          )
-        );
-        toast({
-          title: "Image uploaded successfully!",
-          description: "Team member photo has been updated.",
-        });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
     <section id="team" className="py-20 bg-slate-800/50">
       <div className="container mx-auto px-4">
@@ -107,17 +85,6 @@ const Team = () => {
                       <Users className="w-12 h-12 text-white" />
                     </div>
                   )}
-                  <label className="absolute -bottom-2 right-1/2 transform translate-x-1/2 cursor-pointer">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                      <Upload className="w-4 h-4 text-white" />
-                    </div>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleImageUpload(member.id, e)}
-                    />
-                  </label>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
                 <p className="text-blue-400 font-medium mb-3">{member.role}</p>
