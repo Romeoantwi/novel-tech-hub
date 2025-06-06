@@ -49,6 +49,7 @@ serve(async (req) => {
       <p>You can review and manage this application in your admin dashboard.</p>
     `;
 
+    // Using the verified Resend domain instead of custom domain
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -56,7 +57,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'APEX Technologies <noreply@apextechnologies.com>',
+        from: 'APEX Technologies <onboarding@resend.dev>',
         to: ['romeoantwi15@gmail.com'],
         subject: `New Application: ${applicantData.fullName} - ${applicantData.expertise}`,
         html: emailHtml,
