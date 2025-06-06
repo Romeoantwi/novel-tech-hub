@@ -18,8 +18,12 @@ const Header = () => {
   };
 
   const handleAdminAccess = () => {
-    navigate('/admin');
+    navigate('/auth');
     setIsOpen(false);
+  };
+
+  const handleScheduleCall = () => {
+    window.open('tel:+233546906739', '_self');
   };
 
   const menuItems = [
@@ -58,11 +62,17 @@ const Header = () => {
             Join Network
           </Button>
           <Button
+            onClick={handleScheduleCall}
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg"
+          >
+            📞 Schedule Call
+          </Button>
+          <Button
             variant="ghost"
             size="icon"
             onClick={handleAdminAccess}
             className="text-gray-300 hover:text-blue-400"
-            title="Admin Access"
+            title="Admin Login"
           >
             <Settings className="h-5 w-5" />
           </Button>
@@ -93,12 +103,18 @@ const Header = () => {
                 Join Network
               </Button>
               <Button
+                onClick={handleScheduleCall}
+                className="bg-green-600 hover:bg-green-700 text-white"
+              >
+                📞 Schedule Call
+              </Button>
+              <Button
                 variant="ghost"
                 onClick={handleAdminAccess}
                 className="text-gray-300 hover:text-blue-400 justify-start"
               >
                 <Settings className="h-5 w-5 mr-2" />
-                Admin Access
+                Admin Login
               </Button>
             </div>
           </SheetContent>
