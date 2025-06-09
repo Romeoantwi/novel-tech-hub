@@ -6,6 +6,7 @@ import Team from "@/components/Team";
 import TrackRecord from "@/components/TrackRecord";
 import Services from "@/components/Services";
 import About from "@/components/About";
+import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ const Index = () => {
       <TrackRecord />
       <Services />
       <About />
+      <Reviews />
       <Contact />
       <Footer />
     </div>
