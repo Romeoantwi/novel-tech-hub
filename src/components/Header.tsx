@@ -40,8 +40,8 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="text-2xl font-bold text-white">
-          <span className="text-blue-400">APEX</span> Technologies
-          <div className="text-xs text-gray-400 font-normal">Advanced Professional Excellence Exchange</div>
+          <span className="text-blue-400">Phaemos</span> Technologies
+          <div className="text-xs text-gray-400 font-normal">Professional High-Achievement Excellence Management & Optimization Solutions</div>
         </div>
 
         {/* Desktop Navigation */}

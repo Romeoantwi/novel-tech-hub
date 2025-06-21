@@ -35,7 +35,8 @@ const ReviewForm = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      // Insert review into database
+      const { error: reviewError } = await supabase
         .from('reviews')
         .insert([{
           client_name: formData.client_name,
@@ -45,14 +46,30 @@ const ReviewForm = () => {
           project_type: formData.project_type || null
         }]);
 
-      if (error) {
-        console.error('Error submitting review:', error);
+      if (reviewError) {
+        console.error('Error submitting review:', reviewError);
         toast({
           title: "Error",
           description: "Failed to submit review. Please try again.",
           variant: "destructive"
         });
         return;
+      }
+
+      // Send email notification
+      try {
+        await supabase.functions.invoke('send-review-notification', {
+          body: {
+            client_name: formData.client_name,
+            client_email: formData.client_email,
+            rating: formData.rating,
+            review_text: formData.review_text,
+            project_type: formData.project_type
+          }
+        });
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+        // Don't show error to user as review was saved successfully
       }
 
       toast({
@@ -102,7 +119,7 @@ const ReviewForm = () => {
     <Card className="bg-slate-900/80 border-slate-700">
       <CardHeader>
         <CardTitle className="text-2xl text-white text-center">Leave a Review</CardTitle>
-        <p className="text-gray-300 text-center">Share your experience working with APEX Technologies</p>
+        <p className="text-gray-300 text-center">Share your experience working with Phaemos Technologies</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -169,7 +186,7 @@ const ReviewForm = () => {
               value={formData.review_text}
               onChange={(e) => setFormData({ ...formData, review_text: e.target.value })}
               className="bg-slate-800 border-slate-600 text-white min-h-32"
-              placeholder="Tell us about your experience working with APEX Technologies..."
+              placeholder="Tell us about your experience working with Phaemos Technologies..."
               required
             />
           </div>

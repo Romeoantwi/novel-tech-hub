@@ -355,6 +355,7 @@ export type Database = {
           items: Json
           payment_method: string | null
           payment_status: string | null
+          paystack_reference: string | null
           restaurant_id: string
           special_instructions: string | null
           status: string
@@ -375,6 +376,7 @@ export type Database = {
           items: Json
           payment_method?: string | null
           payment_status?: string | null
+          paystack_reference?: string | null
           restaurant_id?: string
           special_instructions?: string | null
           status?: string
@@ -395,6 +397,7 @@ export type Database = {
           items?: Json
           payment_method?: string | null
           payment_status?: string | null
+          paystack_reference?: string | null
           restaurant_id?: string
           special_instructions?: string | null
           status?: string

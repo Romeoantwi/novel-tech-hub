@@ -15,7 +15,7 @@ const Reviews = () => {
             Client Reviews
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            See what our clients say about working with APEX Technologies
+            See what our clients say about working with Phaemos Technologies
           </p>
           
           <Button

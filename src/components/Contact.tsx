@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -30,7 +31,7 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { label: "Email", value: "contact@apextechnologies.com" },
+    { label: "Email", value: "contact@phaemostechnologies.com" },
     { label: "Phone", value: "+233 546906739" },
     { label: "Address", value: "Accra, Ghana" },
     { label: "Business Hours", value: "Monday - Friday: 9:00 AM - 6:00 PM (GMT)" }
