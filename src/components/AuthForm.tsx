@@ -35,6 +35,17 @@ const AuthForm = () => {
           navigate('/admin');
         }
       } else {
+        // Only allow admin email to sign up
+        if (email !== 'romeoantwi15@gmail.com') {
+          toast({
+            title: "Access Denied",
+            description: "Account creation is restricted to authorized users only.",
+            variant: "destructive",
+          });
+          setLoading(false);
+          return;
+        }
+
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
