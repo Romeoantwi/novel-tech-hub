@@ -24,13 +24,13 @@ const Hero = () => {
         <div className="mb-8">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400">
-              APEX
+              Phaemos
             </span>
             <br />
             <span className="text-4xl md:text-5xl">Technologies</span>
           </h1>
           <p className="text-lg md:text-xl text-blue-300 font-medium mb-6">
-            Advanced Professional Excellence Exchange
+            Professional High-Achievement Excellence Management & Optimization Solutions
           </p>
         </div>
         

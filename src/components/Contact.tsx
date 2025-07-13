@@ -127,7 +127,12 @@ const Contact = () => {
                 <p className="text-blue-100 mb-6">
                   Get a free consultation and discover how we can help transform your business.
                 </p>
-                <Button variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+                <Button 
+                  variant="secondary" 
+                  size="lg" 
+                  className="bg-white text-blue-600 hover:bg-gray-100"
+                  onClick={() => window.open('mailto:contact@phaemostechnologies.com?subject=Schedule a Call&body=Hi, I would like to schedule a call to discuss my project.', '_blank')}
+                >
                   Schedule a Call
                 </Button>
               </CardContent>
