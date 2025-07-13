@@ -142,7 +142,7 @@ const Contact = () => {
                   className="bg-white text-blue-600 hover:bg-gray-100"
                   onClick={() => window.open('tel:+233546906739', '_self')}
                 >
-                  📞 Schedule a Call
+                  📞 Call +233 546906739
                 </Button>
               </CardContent>
             </Card>
