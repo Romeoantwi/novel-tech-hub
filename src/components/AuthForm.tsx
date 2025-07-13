@@ -8,7 +8,6 @@ import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,47 +18,30 @@ const AuthForm = () => {
     setLoading(true);
 
     try {
-      if (isLogin) {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-
-        if (error) throw error;
-
-        if (data.user) {
-          toast({
-            title: "Login successful",
-            description: "Welcome back!",
-          });
-          navigate('/admin');
-        }
-      } else {
-        // Only allow admin email to sign up
-        if (email !== 'romeoantwi15@gmail.com') {
-          toast({
-            title: "Access Denied",
-            description: "Account creation is restricted to authorized users only.",
-            variant: "destructive",
-          });
-          setLoading(false);
-          return;
-        }
-
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/`
-          }
-        });
-
-        if (error) throw error;
-
+      // Only allow admin email to login
+      if (email !== 'romeoantwi15@gmail.com') {
         toast({
-          title: "Account created",
-          description: "Please check your email to verify your account.",
+          title: "Access Denied",
+          description: "This system is restricted to authorized users only.",
+          variant: "destructive",
         });
+        setLoading(false);
+        return;
+      }
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      if (data.user) {
+        toast({
+          title: "Login successful",
+          description: "Welcome back!",
+        });
+        navigate('/admin');
       }
     } catch (error: any) {
       toast({
@@ -77,7 +59,7 @@ const AuthForm = () => {
       <Card className="w-full max-w-md bg-slate-900/80 border-slate-700">
         <CardHeader>
           <CardTitle className="text-2xl text-center text-white">
-            {isLogin ? "Admin Login" : "Create Account"}
+            Admin Login
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -107,17 +89,9 @@ const AuthForm = () => {
               disabled={loading}
               className="w-full bg-blue-600 hover:bg-blue-700"
             >
-              {loading ? "Processing..." : (isLogin ? "Login" : "Sign Up")}
+              {loading ? "Processing..." : "Login"}
             </Button>
           </form>
-          <div className="mt-4 text-center">
-            <button
-              onClick={() => setIsLogin(!isLogin)}
-              className="text-blue-400 hover:underline"
-            >
-              {isLogin ? "Need an account? Sign up" : "Already have an account? Login"}
-            </button>
-          </div>
         </CardContent>
       </Card>
     </div>
