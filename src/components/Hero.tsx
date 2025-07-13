@@ -29,9 +29,6 @@ const Hero = () => {
             <br />
             <span className="text-4xl md:text-5xl">Technologies</span>
           </h1>
-          <p className="text-lg md:text-xl text-blue-300 font-medium mb-6">
-            Professional High-Achievement Excellence Management & Optimization Solutions
-          </p>
         </div>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">

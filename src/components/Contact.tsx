@@ -131,9 +131,9 @@ const Contact = () => {
                   variant="secondary" 
                   size="lg" 
                   className="bg-white text-blue-600 hover:bg-gray-100"
-                  onClick={() => window.open('mailto:contact@phaemostechnologies.com?subject=Schedule a Call&body=Hi, I would like to schedule a call to discuss my project.', '_blank')}
+                  onClick={() => window.open('tel:+233546906739', '_self')}
                 >
-                  Schedule a Call
+                  📞 Schedule a Call
                 </Button>
               </CardContent>
             </Card>

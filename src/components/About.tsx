@@ -27,11 +27,11 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About <span className="text-blue-400">Novel Technologies</span>
+              About <span className="text-blue-400">Phaemos Technologies</span>
             </h2>
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
-                Founded with a vision to revolutionize how businesses leverage technology, Novel Technologies 
+                Founded with a vision to revolutionize how businesses leverage technology, Phaemos Technologies 
                 has emerged as a leading provider of innovative software solutions. We specialize in transforming 
                 complex business challenges into elegant, scalable technology solutions.
               </p>
@@ -42,7 +42,7 @@ const About = () => {
                 achieve their digital transformation goals.
               </p>
               <p>
-                At Novel Technologies, we don't just build software – we craft experiences that empower users 
+                At Phaemos Technologies, we don't just build software – we craft experiences that empower users 
                 and create lasting value for businesses. Our commitment to excellence, innovation, and client 
                 success has made us a trusted partner in the technology landscape.
               </p>
