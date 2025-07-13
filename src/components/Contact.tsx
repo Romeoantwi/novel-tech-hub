@@ -113,7 +113,16 @@ const Contact = () => {
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex justify-between items-start">
                     <span className="text-gray-400 font-medium">{info.label}:</span>
-                    <span className="text-white text-right">{info.value}</span>
+                    {info.label === "Phone" ? (
+                      <a 
+                        href="tel:+233546906739" 
+                        className="text-blue-400 hover:text-blue-300 text-right font-medium transition-colors"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <span className="text-white text-right">{info.value}</span>
+                    )}
                   </div>
                 ))}
               </CardContent>
