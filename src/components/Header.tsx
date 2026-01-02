@@ -37,10 +37,10 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 z-50">
+    <header className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-xl border-b border-white/10 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold text-white">
-          <span className="text-blue-400">Phaemos</span> Technologies
+        <div className="text-2xl font-display font-bold text-white">
+          <span className="gradient-text">Phaemos</span> Technologies
         </div>
 
         {/* Desktop Navigation */}
@@ -55,14 +55,14 @@ const Header = () => {
             </button>
           ))}
           <Button 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 text-white font-semibold px-6 py-2 rounded-xl shadow-lg glow-primary transform hover:scale-105 transition-all duration-200"
             onClick={() => scrollToSection("apply")}
           >
             Join Network
           </Button>
           <Button
             onClick={handleScheduleCall}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg"
+            className="bg-secondary hover:bg-secondary/90 text-white font-semibold px-4 py-2 rounded-xl"
           >
             📞 Schedule Call
           </Button>
@@ -96,14 +96,14 @@ const Header = () => {
                 </button>
               ))}
               <Button 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white mt-4"
+                className="bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 text-white mt-4 rounded-xl"
                 onClick={() => scrollToSection("apply")}
               >
                 Join Network
               </Button>
               <Button
                 onClick={handleScheduleCall}
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className="bg-secondary hover:bg-secondary/90 text-white rounded-xl"
               >
                 📞 Schedule Call
               </Button>
