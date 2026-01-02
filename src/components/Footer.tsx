@@ -32,32 +32,36 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-700">
-      <div className="container mx-auto px-4 py-16">
+    <footer className="bg-slate-950 border-t border-white/10 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 tech-grid-bg opacity-20"></div>
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px]"></div>
+      
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="text-2xl font-bold text-white mb-2">
-              <span className="text-blue-400">Phaemos</span> Technologies
+            <div className="text-2xl font-display font-bold text-white mb-2">
+              <span className="gradient-text">Phaemos</span> Technologies
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-white/60 mb-6">
               Transforming businesses through innovative technology solutions. 
               Your trusted partner in digital transformation.
             </p>
-            <div className="text-gray-400">
+            <div className="text-white/60">
               <p>+233 546906739</p>
             </div>
           </div>
 
           {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Company</h3>
+            <h3 className="text-lg font-display font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                    className="text-white/60 hover:text-primary transition-colors duration-200 animated-underline"
                   >
                     {link.label}
                   </button>
@@ -68,13 +72,13 @@ const Footer = () => {
 
           {/* Services Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Services</h3>
+            <h3 className="text-lg font-display font-semibold text-white mb-4">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                    className="text-white/60 hover:text-secondary transition-colors duration-200 animated-underline"
                   >
                     {link.label}
                   </button>
@@ -85,13 +89,13 @@ const Footer = () => {
 
           {/* Resources Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
+            <h3 className="text-lg font-display font-semibold text-white mb-4">Resources</h3>
             <ul className="space-y-2">
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                    className="text-white/60 hover:text-accent transition-colors duration-200 animated-underline"
                   >
                     {link.label}
                   </button>
@@ -101,18 +105,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-white/50 text-sm">
             © {currentYear} Phaemos Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm">
+            <a href="#" className="text-white/50 hover:text-primary transition-colors duration-200 text-sm animated-underline">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm">
+            <a href="#" className="text-white/50 hover:text-primary transition-colors duration-200 text-sm animated-underline">
               Terms of Service
             </a>
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm">
+            <a href="#" className="text-white/50 hover:text-primary transition-colors duration-200 text-sm animated-underline">
               Cookie Policy
             </a>
           </div>

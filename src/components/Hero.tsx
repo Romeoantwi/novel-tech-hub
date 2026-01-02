@@ -1,6 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { Code, Zap, Users, Trophy } from "lucide-react";
+import { Code, Zap, Users, Trophy, Sparkles } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -12,34 +11,46 @@ const Hero = () => {
 
   return (
     <section id="hero" className="pt-20 min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Enhanced Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/30 to-purple-600/30"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/15 rounded-full blur-2xl"></div>
+      {/* Animated Tech Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        {/* Animated Grid */}
+        <div className="absolute inset-0 tech-grid-bg opacity-40"></div>
+        
+        {/* Floating Orbs */}
+        <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-[100px] floating-orb"></div>
+        <div className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] bg-gradient-to-br from-secondary/30 to-primary/20 rounded-full blur-[80px] floating-orb-delayed"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-accent/10 via-transparent to-transparent rounded-full animate-glow-pulse"></div>
+        
+        {/* Subtle mesh overlay */}
+        <div className="absolute inset-0 bg-mesh-gradient opacity-50"></div>
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark mb-8 animate-fade-in">
+          <Sparkles className="h-4 w-4 text-accent" />
+          <span className="text-sm font-medium text-white/90">Ghana's Premier Tech Network</span>
+        </div>
+
+        <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-6xl md:text-8xl font-display font-bold text-white mb-4 leading-tight tracking-tight">
+            <span className="gradient-text">
               Phaemos
             </span>
             <br />
-            <span className="text-4xl md:text-5xl">Technologies</span>
+            <span className="text-4xl md:text-5xl text-white/90">Technologies</span>
           </h1>
         </div>
         
-        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-          Join Ghana's premier network of tech professionals. Get matched with high-paying 
-          projects in your expertise area and earn <span className="text-blue-400 font-bold">60% of project revenue</span> while we handle client acquisition.
+        <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed font-light animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          Join our elite network of tech professionals. Get matched with high-paying 
+          projects and earn <span className="text-primary font-semibold">60% of project revenue</span> while we handle client acquisition.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-6 text-xl font-semibold rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 text-white px-10 py-6 text-xl font-semibold rounded-2xl shadow-2xl glow-primary transform hover:scale-105 transition-all duration-300"
             onClick={() => scrollToSection("apply")}
           >
             <Users className="mr-2 h-6 w-6" />
@@ -48,7 +59,7 @@ const Hero = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-10 py-6 text-xl font-semibold rounded-xl backdrop-blur-sm bg-slate-800/50 transform hover:scale-105 transition-all duration-300"
+            className="border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 px-10 py-6 text-xl font-semibold rounded-2xl glass-dark transform hover:scale-105 transition-all duration-300"
             onClick={() => scrollToSection("services")}
           >
             <Code className="mr-2 h-6 w-6" />
@@ -58,26 +69,32 @@ const Hero = () => {
         
         {/* Enhanced Key Benefits */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 transform hover:scale-105 transition-all duration-300 shadow-xl">
+          <div className="glass-dark p-8 rounded-3xl hover-lift border-gradient animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <div className="flex items-center justify-center mb-4">
-              <Trophy className="h-12 w-12 text-yellow-400" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20">
+                <Trophy className="h-10 w-10 text-yellow-400" />
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-blue-400 mb-3">60% Revenue Share</h3>
-            <p className="text-gray-300 text-lg">Earn majority of project revenue while we handle client acquisition and business development</p>
+            <h3 className="text-2xl font-display font-bold text-primary mb-3">60% Revenue Share</h3>
+            <p className="text-white/60 text-lg">Earn majority of project revenue while we handle client acquisition and business development</p>
           </div>
-          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 transform hover:scale-105 transition-all duration-300 shadow-xl">
+          <div className="glass-dark p-8 rounded-3xl hover-lift border-gradient animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="flex items-center justify-center mb-4">
-              <Zap className="h-12 w-12 text-green-400" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20">
+                <Zap className="h-10 w-10 text-green-400" />
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-blue-400 mb-3">Flexible Work</h3>
-            <p className="text-gray-300 text-lg">Work on projects that match your schedule, expertise, and professional goals</p>
+            <h3 className="text-2xl font-display font-bold text-secondary mb-3">Flexible Work</h3>
+            <p className="text-white/60 text-lg">Work on projects that match your schedule, expertise, and professional goals</p>
           </div>
-          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 transform hover:scale-105 transition-all duration-300 shadow-xl">
+          <div className="glass-dark p-8 rounded-3xl hover-lift border-gradient animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <div className="flex items-center justify-center mb-4">
-              <Users className="h-12 w-12 text-purple-400" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                <Users className="h-10 w-10 text-accent" />
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-blue-400 mb-3">No Client Hunting</h3>
-            <p className="text-gray-300 text-lg">Focus on what you do best while we bring high-quality projects directly to you</p>
+            <h3 className="text-2xl font-display font-bold text-accent mb-3">No Client Hunting</h3>
+            <p className="text-white/60 text-lg">Focus on what you do best while we bring high-quality projects directly to you</p>
           </div>
         </div>
       </div>
