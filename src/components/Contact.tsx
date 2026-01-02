@@ -31,9 +31,7 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { label: "Email", value: "contact@phaemostechnologies.com" },
     { label: "Phone", value: "+233 546906739" },
-    { label: "Address", value: "Accra, Ghana" },
     { label: "Business Hours", value: "Monday - Friday: 9:00 AM - 6:00 PM (GMT)" }
   ];
 
