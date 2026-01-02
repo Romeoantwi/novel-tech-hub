@@ -28,8 +28,8 @@ serve(async (req) => {
     }
 
     const emailHtml = `
-      <h2>New Application Received - APEX Technologies</h2>
-      <p>A new application has been submitted to join the APEX Technologies network.</p>
+      <h2>New Application Received - Phaemos Technologies</h2>
+      <p>A new application has been submitted to join the Phaemos Technologies network.</p>
       
       <h3>Applicant Details:</h3>
       <ul>
@@ -57,7 +57,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'APEX Technologies <onboarding@resend.dev>',
+        from: 'Phaemos Technologies <onboarding@resend.dev>',
         to: ['romeoantwi15@gmail.com'],
         subject: `New Application: ${applicantData.fullName} - ${applicantData.expertise}`,
         html: emailHtml,

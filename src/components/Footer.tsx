@@ -40,14 +40,11 @@ const Footer = () => {
             <div className="text-2xl font-bold text-white mb-2">
               <span className="text-blue-400">Phaemos</span> Technologies
             </div>
-            <p className="text-sm text-gray-500 mb-4">Professional High-Achievement Excellence Management & Optimization Solutions</p>
             <p className="text-gray-400 mb-6">
               Transforming businesses through innovative technology solutions. 
               Your trusted partner in digital transformation.
             </p>
             <div className="text-gray-400">
-              <p>Accra, Ghana</p>
-              <p className="mt-2">contact@phaemostechnologies.com</p>
               <p>+233 546906739</p>
             </div>
           </div>
