@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +37,9 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-xl border-b border-white/10 z-50">
+    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-xl border-b border-border/50 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-display font-bold text-white">
+        <div className="text-2xl font-display font-bold text-foreground">
           <span className="gradient-text">Phaemos</span> Technologies
         </div>
 
@@ -49,7 +49,7 @@ const Header = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium"
+              className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium animated-underline"
             >
               {item.label}
             </button>
@@ -66,11 +66,12 @@ const Header = () => {
           >
             📞 Schedule Call
           </Button>
+          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"
             onClick={handleAdminAccess}
-            className="text-gray-300 hover:text-blue-400"
+            className="text-muted-foreground hover:text-primary"
             title="Admin Login"
           >
             <Settings className="h-5 w-5" />
@@ -84,13 +85,13 @@ const Header = () => {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-slate-900 border-slate-700">
+          <SheetContent side="right" className="bg-background border-border">
             <div className="flex flex-col space-y-4 mt-8">
               {menuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 text-left font-medium"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 text-left font-medium"
                 >
                   {item.label}
                 </button>
@@ -107,10 +108,11 @@ const Header = () => {
               >
                 📞 Schedule Call
               </Button>
+              <ThemeToggle />
               <Button
                 variant="ghost"
                 onClick={handleAdminAccess}
-                className="text-gray-300 hover:text-blue-400 justify-start"
+                className="text-muted-foreground hover:text-primary justify-start"
               >
                 <Settings className="h-5 w-5 mr-2" />
                 Admin Login
