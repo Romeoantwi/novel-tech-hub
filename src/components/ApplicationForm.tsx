@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -53,18 +52,6 @@ const ApplicationForm = () => {
         return;
       }
 
-      // Send email notification
-      try {
-        await supabase.functions.invoke('send-application-email', {
-          body: {
-            applicantData: formData
-          }
-        });
-      } catch (emailError) {
-        console.error('Error sending email notification:', emailError);
-        // Don't fail the entire submission if email fails
-      }
-
       toast({
         title: "Application Submitted!",
         description: "We'll review your application and get back to you within 48 hours.",
@@ -102,19 +89,19 @@ const ApplicationForm = () => {
   };
 
   return (
-    <section id="apply" className="py-20 bg-slate-900/30">
+    <section id="apply" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Join Our <span className="text-blue-400">Tech Network</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Join Our <span className="text-primary">Tech Network</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Are you a skilled tech professional? Join APEX Technologies and earn 60% of project revenue 
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Are you a skilled tech professional? Join Phaemos Technologies and earn 60% of project revenue 
             while working on exciting projects in your area of expertise.
           </p>
-          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-6 rounded-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-blue-400 mb-2">How It Works</h3>
-            <div className="text-gray-300 space-y-2">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg max-w-2xl mx-auto border border-primary/20">
+            <h3 className="text-2xl font-bold text-primary mb-2">How It Works</h3>
+            <div className="text-muted-foreground space-y-2">
               <p>1. Submit your application with your expertise area</p>
               <p>2. Get approved and join our talent network</p>
               <p>3. Receive project assignments matching your skills</p>
@@ -124,9 +111,9 @@ const ApplicationForm = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Card className="bg-slate-900/80 border-slate-700">
+          <Card className="bg-card border-border shadow-lg">
             <CardHeader>
-              <CardTitle className="text-3xl text-white text-center">Application Form</CardTitle>
+              <CardTitle className="text-3xl text-foreground text-center">Application Form</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -152,7 +139,7 @@ const ApplicationForm = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-3"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-3"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting..." : "Submit Application"}
