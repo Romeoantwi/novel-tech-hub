@@ -116,28 +116,28 @@ const ReviewForm = () => {
   };
 
   return (
-    <Card className="bg-slate-900/80 border-slate-700">
+    <Card className="bg-card border-border shadow-sm">
       <CardHeader>
-        <CardTitle className="text-2xl text-white text-center">Leave a Review</CardTitle>
-        <p className="text-gray-300 text-center">Share your experience working with Phaemos Technologies</p>
+        <CardTitle className="text-2xl text-foreground text-center">Leave a Review</CardTitle>
+        <p className="text-muted-foreground text-center">Share your experience working with Phaemos Technologies</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="client_name" className="text-gray-300">
+              <Label htmlFor="client_name" className="text-foreground">
                 Your Name *
               </Label>
               <Input
                 id="client_name"
                 value={formData.client_name}
                 onChange={(e) => setFormData({ ...formData, client_name: e.target.value })}
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-background border-border text-foreground"
                 required
               />
             </div>
             <div>
-              <Label htmlFor="client_email" className="text-gray-300">
+              <Label htmlFor="client_email" className="text-foreground">
                 Your Email *
               </Label>
               <Input
@@ -145,28 +145,28 @@ const ReviewForm = () => {
                 type="email"
                 value={formData.client_email}
                 onChange={(e) => setFormData({ ...formData, client_email: e.target.value })}
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-background border-border text-foreground"
                 required
               />
             </div>
           </div>
 
           <div>
-            <Label className="text-gray-300">Rating *</Label>
+            <Label className="text-foreground">Rating *</Label>
             <div className="mt-2">
               {renderStars()}
             </div>
           </div>
 
           <div>
-            <Label htmlFor="project_type" className="text-gray-300">
+            <Label htmlFor="project_type" className="text-foreground">
               Project Type (Optional)
             </Label>
             <Select value={formData.project_type} onValueChange={(value) => setFormData({ ...formData, project_type: value })}>
-              <SelectTrigger className="bg-slate-800 border-slate-600 text-white">
+              <SelectTrigger className="bg-background border-border text-foreground">
                 <SelectValue placeholder="Select project type" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-800 border-slate-600">
+              <SelectContent className="bg-card border-border">
                 <SelectItem value="web-development">Web Development</SelectItem>
                 <SelectItem value="mobile-app">Mobile App</SelectItem>
                 <SelectItem value="software-development">Software Development</SelectItem>
@@ -178,14 +178,14 @@ const ReviewForm = () => {
           </div>
 
           <div>
-            <Label htmlFor="review_text" className="text-gray-300">
+            <Label htmlFor="review_text" className="text-foreground">
               Your Review *
             </Label>
             <Textarea
               id="review_text"
               value={formData.review_text}
               onChange={(e) => setFormData({ ...formData, review_text: e.target.value })}
-              className="bg-slate-800 border-slate-600 text-white min-h-32"
+              className="bg-background border-border text-foreground min-h-32"
               placeholder="Tell us about your experience working with Phaemos Technologies..."
               required
             />
@@ -194,7 +194,7 @@ const ReviewForm = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             {isSubmitting ? "Submitting..." : "Submit Review"}
           </Button>

@@ -58,37 +58,37 @@ const Team = () => {
   ]);
 
   return (
-    <section id="team" className="py-20 bg-slate-800/50">
+    <section id="team" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Meet Our <span className="text-blue-400">Expert Team</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Meet Our <span className="text-primary">Expert Team</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Our talented professionals bring together decades of experience in cutting-edge technology solutions
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
           {teamMembers.map((member) => (
-            <Card key={member.id} className="bg-slate-900/80 border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
+            <Card key={member.id} className="bg-card border-border hover:border-primary/50 transition-all duration-300 group shadow-sm">
               <CardContent className="p-6 text-center">
                 <div className="relative mb-4">
                   {member.image ? (
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover border-2 border-blue-400"
+                      className="w-24 h-24 rounded-full mx-auto object-cover border-2 border-primary"
                     />
                   ) : (
-                    <div className="w-24 h-24 rounded-full mx-auto bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-white" />
+                    <div className="w-24 h-24 rounded-full mx-auto bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                      <Users className="w-12 h-12 text-primary-foreground" />
                     </div>
                   )}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
-                <p className="text-blue-400 font-medium mb-3">{member.role}</p>
-                <p className="text-gray-400 text-sm leading-relaxed">{member.bio}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{member.name}</h3>
+                <p className="text-primary font-medium mb-3">{member.role}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
               </CardContent>
             </Card>
           ))}

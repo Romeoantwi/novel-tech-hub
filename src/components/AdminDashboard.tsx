@@ -223,24 +223,24 @@ const AdminDashboard = () => {
   if (loading && reviewsLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center text-white">Loading dashboard...</div>
+        <div className="text-center text-foreground">Loading dashboard...</div>
       </div>
     );
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-slate-900/80 border-slate-700">
+      <Card className="bg-card border-border shadow-sm">
         <CardHeader>
-          <CardTitle className="text-3xl text-white">Admin Dashboard</CardTitle>
+          <CardTitle className="text-3xl text-foreground">Admin Dashboard</CardTitle>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="applications" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-slate-800">
-              <TabsTrigger value="applications" className="text-white data-[state=active]:bg-slate-700">
+            <TabsList className="grid w-full grid-cols-2 bg-muted">
+              <TabsTrigger value="applications" className="text-foreground data-[state=active]:bg-background">
                 Applications ({applications.length})
               </TabsTrigger>
-              <TabsTrigger value="reviews" className="text-white data-[state=active]:bg-slate-700">
+              <TabsTrigger value="reviews" className="text-foreground data-[state=active]:bg-background">
                 Reviews ({reviews.length})
               </TabsTrigger>
             </TabsList>
@@ -248,32 +248,32 @@ const AdminDashboard = () => {
             <TabsContent value="applications">
               <Table>
                 <TableHeader>
-                  <TableRow className="border-slate-700">
-                    <TableHead className="text-gray-300">Name</TableHead>
-                    <TableHead className="text-gray-300">Email</TableHead>
-                    <TableHead className="text-gray-300">Expertise</TableHead>
-                    <TableHead className="text-gray-300">Experience</TableHead>
-                    <TableHead className="text-gray-300">Status</TableHead>
-                    <TableHead className="text-gray-300">Submitted</TableHead>
-                    <TableHead className="text-gray-300">Actions</TableHead>
+                  <TableRow className="border-border">
+                    <TableHead className="text-muted-foreground">Name</TableHead>
+                    <TableHead className="text-muted-foreground">Email</TableHead>
+                    <TableHead className="text-muted-foreground">Expertise</TableHead>
+                    <TableHead className="text-muted-foreground">Experience</TableHead>
+                    <TableHead className="text-muted-foreground">Status</TableHead>
+                    <TableHead className="text-muted-foreground">Submitted</TableHead>
+                    <TableHead className="text-muted-foreground">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {applications.map((application) => (
-                    <TableRow key={application.id} className="border-slate-700">
-                      <TableCell className="text-white font-medium">
+                    <TableRow key={application.id} className="border-border">
+                      <TableCell className="text-foreground font-medium">
                         {application.full_name}
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         <div className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
                           {application.email}
                         </div>
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         {application.expertise}
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         {application.experience}
                       </TableCell>
                       <TableCell>
@@ -281,7 +281,7 @@ const AdminDashboard = () => {
                           {application.status}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         {formatDate(application.created_at)}
                       </TableCell>
                       <TableCell>
@@ -290,43 +290,43 @@ const AdminDashboard = () => {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="border-slate-600 text-white hover:bg-slate-700"
+                              className="border-border text-foreground hover:bg-muted"
                               onClick={() => setSelectedApplication(application)}
                             >
                               <Eye className="h-4 w-4" />
                             </Button>
                           </DialogTrigger>
-                          <DialogContent className="bg-slate-900 border-slate-700 max-w-2xl">
+                          <DialogContent className="bg-card border-border max-w-2xl">
                             <DialogHeader>
-                              <DialogTitle className="text-white">
+                              <DialogTitle className="text-foreground">
                                 Application Details - {selectedApplication?.full_name}
                               </DialogTitle>
                             </DialogHeader>
                             {selectedApplication && (
-                              <div className="space-y-4 text-gray-300">
+                              <div className="space-y-4 text-muted-foreground">
                                 <div className="grid grid-cols-2 gap-4">
                                   <div>
-                                    <strong>Email:</strong> {selectedApplication.email}
+                                    <strong className="text-foreground">Email:</strong> {selectedApplication.email}
                                   </div>
                                   <div>
-                                    <strong>Phone:</strong> {selectedApplication.phone}
+                                    <strong className="text-foreground">Phone:</strong> {selectedApplication.phone}
                                   </div>
                                   <div>
-                                    <strong>Expertise:</strong> {selectedApplication.expertise}
+                                    <strong className="text-foreground">Expertise:</strong> {selectedApplication.expertise}
                                   </div>
                                   <div>
-                                    <strong>Experience:</strong> {selectedApplication.experience}
+                                    <strong className="text-foreground">Experience:</strong> {selectedApplication.experience}
                                   </div>
                                 </div>
                                 
                                 {selectedApplication.portfolio && (
                                   <div>
-                                    <strong>Portfolio:</strong> 
+                                    <strong className="text-foreground">Portfolio:</strong> 
                                     <a 
                                       href={selectedApplication.portfolio} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
-                                      className="text-blue-400 hover:underline ml-2 inline-flex items-center gap-1"
+                                      className="text-primary hover:underline ml-2 inline-flex items-center gap-1"
                                     >
                                       {selectedApplication.portfolio}
                                       <ExternalLink className="h-4 w-4" />
@@ -336,12 +336,12 @@ const AdminDashboard = () => {
                                 
                                 {selectedApplication.linkedin && (
                                   <div>
-                                    <strong>LinkedIn:</strong> 
+                                    <strong className="text-foreground">LinkedIn:</strong> 
                                     <a 
                                       href={selectedApplication.linkedin} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
-                                      className="text-blue-400 hover:underline ml-2 inline-flex items-center gap-1"
+                                      className="text-primary hover:underline ml-2 inline-flex items-center gap-1"
                                     >
                                       {selectedApplication.linkedin}
                                       <ExternalLink className="h-4 w-4" />
@@ -351,12 +351,12 @@ const AdminDashboard = () => {
                                 
                                 {selectedApplication.github && (
                                   <div>
-                                    <strong>GitHub:</strong> 
+                                    <strong className="text-foreground">GitHub:</strong> 
                                     <a 
                                       href={selectedApplication.github} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
-                                      className="text-blue-400 hover:underline ml-2 inline-flex items-center gap-1"
+                                      className="text-primary hover:underline ml-2 inline-flex items-center gap-1"
                                     >
                                       {selectedApplication.github}
                                       <ExternalLink className="h-4 w-4" />
@@ -365,8 +365,8 @@ const AdminDashboard = () => {
                                 )}
                                 
                                 <div>
-                                  <strong>Cover Letter:</strong>
-                                  <p className="mt-2 p-3 bg-slate-800 rounded border border-slate-600 whitespace-pre-wrap">
+                                  <strong className="text-foreground">Cover Letter:</strong>
+                                  <p className="mt-2 p-3 bg-muted rounded border border-border whitespace-pre-wrap">
                                     {selectedApplication.cover_letter}
                                   </p>
                                 </div>
@@ -374,19 +374,19 @@ const AdminDashboard = () => {
                                 <div className="flex gap-2 pt-4">
                                   <Button
                                     onClick={() => updateApplicationStatus(selectedApplication.id, 'reviewed')}
-                                    className="bg-blue-600 hover:bg-blue-700"
+                                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
                                   >
                                     Mark as Reviewed
                                   </Button>
                                   <Button
                                     onClick={() => updateApplicationStatus(selectedApplication.id, 'approved')}
-                                    className="bg-green-600 hover:bg-green-700"
+                                    className="bg-green-600 hover:bg-green-700 text-white"
                                   >
                                     Approve
                                   </Button>
                                   <Button
                                     onClick={() => updateApplicationStatus(selectedApplication.id, 'rejected')}
-                                    className="bg-red-600 hover:bg-red-700"
+                                    className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
                                   >
                                     Reject
                                   </Button>
@@ -402,7 +402,7 @@ const AdminDashboard = () => {
               </Table>
               
               {applications.length === 0 && (
-                <div className="text-center py-8 text-gray-400">
+                <div className="text-center py-8 text-muted-foreground">
                   No applications submitted yet.
                 </div>
               )}
@@ -411,29 +411,29 @@ const AdminDashboard = () => {
             <TabsContent value="reviews">
               <Table>
                 <TableHeader>
-                  <TableRow className="border-slate-700">
-                    <TableHead className="text-gray-300">Client Name</TableHead>
-                    <TableHead className="text-gray-300">Email</TableHead>
-                    <TableHead className="text-gray-300">Rating</TableHead>
-                    <TableHead className="text-gray-300">Project Type</TableHead>
-                    <TableHead className="text-gray-300">Status</TableHead>
-                    <TableHead className="text-gray-300">Submitted</TableHead>
-                    <TableHead className="text-gray-300">Actions</TableHead>
+                  <TableRow className="border-border">
+                    <TableHead className="text-muted-foreground">Client Name</TableHead>
+                    <TableHead className="text-muted-foreground">Email</TableHead>
+                    <TableHead className="text-muted-foreground">Rating</TableHead>
+                    <TableHead className="text-muted-foreground">Project Type</TableHead>
+                    <TableHead className="text-muted-foreground">Status</TableHead>
+                    <TableHead className="text-muted-foreground">Submitted</TableHead>
+                    <TableHead className="text-muted-foreground">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {reviews.map((review) => (
-                    <TableRow key={review.id} className="border-slate-700">
-                      <TableCell className="text-white font-medium">
+                    <TableRow key={review.id} className="border-border">
+                      <TableCell className="text-foreground font-medium">
                         {review.client_name}
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         {review.client_email}
                       </TableCell>
                       <TableCell>
                         {renderStars(review.rating)}
                       </TableCell>
-                      <TableCell className="text-gray-300 capitalize">
+                      <TableCell className="text-muted-foreground capitalize">
                         {review.project_type?.replace('-', ' ') || 'Not specified'}
                       </TableCell>
                       <TableCell>
@@ -441,7 +441,7 @@ const AdminDashboard = () => {
                           {review.is_approved ? 'Approved' : 'Pending'}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-gray-300">
+                      <TableCell className="text-muted-foreground">
                         {formatDate(review.created_at)}
                       </TableCell>
                       <TableCell>
@@ -451,41 +451,41 @@ const AdminDashboard = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="border-slate-600 text-white hover:bg-slate-700"
+                                className="border-border text-foreground hover:bg-muted"
                                 onClick={() => setSelectedReview(review)}
                               >
                                 <Eye className="h-4 w-4" />
                               </Button>
                             </DialogTrigger>
-                            <DialogContent className="bg-slate-900 border-slate-700 max-w-2xl">
+                            <DialogContent className="bg-card border-border max-w-2xl">
                               <DialogHeader>
-                                <DialogTitle className="text-white">
+                                <DialogTitle className="text-foreground">
                                   Review Details - {selectedReview?.client_name}
                                 </DialogTitle>
                               </DialogHeader>
                               {selectedReview && (
-                                <div className="space-y-4 text-gray-300">
+                                <div className="space-y-4 text-muted-foreground">
                                   <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                      <strong>Client:</strong> {selectedReview.client_name}
+                                      <strong className="text-foreground">Client:</strong> {selectedReview.client_name}
                                     </div>
                                     <div>
-                                      <strong>Email:</strong> {selectedReview.client_email}
+                                      <strong className="text-foreground">Email:</strong> {selectedReview.client_email}
                                     </div>
                                     <div>
-                                      <strong>Rating:</strong>
+                                      <strong className="text-foreground">Rating:</strong>
                                       <div className="mt-1">
                                         {renderStars(selectedReview.rating)}
                                       </div>
                                     </div>
                                     <div>
-                                      <strong>Project Type:</strong> {selectedReview.project_type?.replace('-', ' ') || 'Not specified'}
+                                      <strong className="text-foreground">Project Type:</strong> {selectedReview.project_type?.replace('-', ' ') || 'Not specified'}
                                     </div>
                                   </div>
                                   
                                   <div>
-                                    <strong>Review:</strong>
-                                    <p className="mt-2 p-3 bg-slate-800 rounded border border-slate-600">
+                                    <strong className="text-foreground">Review:</strong>
+                                    <p className="mt-2 p-3 bg-muted rounded border border-border">
                                       {selectedReview.review_text}
                                     </p>
                                   </div>
@@ -493,7 +493,7 @@ const AdminDashboard = () => {
                                   <div className="flex gap-2 pt-4">
                                     <Button
                                       onClick={() => updateReviewStatus(selectedReview.id, true)}
-                                      className="bg-green-600 hover:bg-green-700"
+                                      className="bg-green-600 hover:bg-green-700 text-white"
                                       disabled={selectedReview.is_approved}
                                     >
                                       <CheckCircle className="h-4 w-4 mr-2" />
@@ -501,7 +501,7 @@ const AdminDashboard = () => {
                                     </Button>
                                     <Button
                                       onClick={() => updateReviewStatus(selectedReview.id, false)}
-                                      className="bg-red-600 hover:bg-red-700"
+                                      className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
                                       disabled={!selectedReview.is_approved}
                                     >
                                       <XCircle className="h-4 w-4 mr-2" />
@@ -520,7 +520,7 @@ const AdminDashboard = () => {
               </Table>
               
               {reviews.length === 0 && (
-                <div className="text-center py-8 text-gray-400">
+                <div className="text-center py-8 text-muted-foreground">
                   No reviews submitted yet.
                 </div>
               )}
