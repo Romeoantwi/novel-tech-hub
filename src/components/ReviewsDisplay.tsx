@@ -24,7 +24,7 @@ const ReviewsDisplay = () => {
   const fetchReviews = async () => {
     try {
       const { data, error } = await supabase
-        .from('reviews')
+        .from('reviews' as any)
         .select('*')
         .eq('is_approved', true)
         .order('created_at', { ascending: false });
@@ -34,7 +34,7 @@ const ReviewsDisplay = () => {
         return;
       }
 
-      setReviews(data || []);
+      setReviews((data as unknown as Review[]) || []);
     } catch (error) {
       console.error('Unexpected error:', error);
     } finally {

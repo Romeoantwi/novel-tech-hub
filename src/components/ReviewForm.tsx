@@ -37,7 +37,7 @@ const ReviewForm = () => {
     try {
       // Insert review into database
       const { error: reviewError } = await supabase
-        .from('reviews')
+        .from('reviews' as any)
         .insert([{
           client_name: formData.client_name,
           client_email: formData.client_email,
