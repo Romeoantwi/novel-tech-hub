@@ -81,7 +81,7 @@ const AdminDashboard = () => {
   const fetchReviews = async () => {
     try {
       const { data, error } = await supabase
-        .from('reviews')
+        .from('reviews' as any)
         .select('*')
         .order('created_at', { ascending: false });
 
@@ -95,7 +95,7 @@ const AdminDashboard = () => {
         return;
       }
 
-      setReviews(data || []);
+      setReviews((data as unknown as Review[]) || []);
     } catch (error) {
       console.error('Unexpected error:', error);
     } finally {
@@ -146,7 +146,7 @@ const AdminDashboard = () => {
   const updateReviewStatus = async (reviewId: string, isApproved: boolean) => {
     try {
       const { error } = await supabase
-        .from('reviews')
+        .from('reviews' as any)
         .update({ is_approved: isApproved })
         .eq('id', reviewId);
 
