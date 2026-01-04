@@ -69,7 +69,7 @@ const ReviewsDisplay = () => {
 
   if (loading) {
     return (
-      <div className="text-center text-gray-300">
+      <div className="text-center text-muted-foreground">
         Loading reviews...
       </div>
     );
@@ -77,7 +77,7 @@ const ReviewsDisplay = () => {
 
   if (reviews.length === 0) {
     return (
-      <div className="text-center text-gray-300">
+      <div className="text-center text-muted-foreground">
         No reviews yet. Be the first to leave a review!
       </div>
     );
@@ -86,13 +86,13 @@ const ReviewsDisplay = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {reviews.map((review) => (
-        <Card key={review.id} className="bg-slate-900/80 border-slate-700">
+        <Card key={review.id} className="bg-card border-border shadow-sm">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-white font-semibold">{review.client_name}</h3>
+                <h3 className="text-foreground font-semibold">{review.client_name}</h3>
                 {review.project_type && (
-                  <p className="text-sm text-gray-400 capitalize">
+                  <p className="text-sm text-muted-foreground capitalize">
                     {review.project_type.replace('-', ' ')}
                   </p>
                 )}
@@ -100,11 +100,11 @@ const ReviewsDisplay = () => {
               {renderStars(review.rating)}
             </div>
             
-            <p className="text-gray-300 mb-4 line-clamp-4">
+            <p className="text-muted-foreground mb-4 line-clamp-4">
               "{review.review_text}"
             </p>
             
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground/70">
               {formatDate(review.created_at)}
             </p>
           </CardContent>

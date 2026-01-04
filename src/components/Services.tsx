@@ -87,70 +87,70 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-slate-800/30">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Our <span className="text-blue-400">Services</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Our <span className="text-primary">Services</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive technology solutions designed to accelerate your digital transformation
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-slate-900/80 border-slate-700 hover:border-blue-500/50 transition-all duration-300 group hover:transform hover:scale-105">
+            <Card key={index} className="bg-card border-border hover:border-primary/50 transition-all duration-300 group hover:transform hover:scale-105 shadow-sm">
               <CardHeader>
-                <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
+                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-gray-400 flex items-center">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                    <li key={featureIndex} className="text-muted-foreground flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="outline" className="w-full border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                    <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                       Learn More
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="bg-slate-900 border-slate-700 text-white max-w-2xl max-h-[80vh] overflow-y-auto">
+                  <DialogContent className="bg-card border-border text-foreground max-w-2xl max-h-[80vh] overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl text-blue-400 mb-4">{service.title}</DialogTitle>
+                      <DialogTitle className="text-2xl text-primary mb-4">{service.title}</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-6">
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed">
                         {service.detailedDescription}
                       </p>
                       
                       <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">Key Benefits:</h4>
+                        <h4 className="text-lg font-semibold text-foreground mb-3">Key Benefits:</h4>
                         <ul className="space-y-2">
                           {service.benefits.map((benefit, benefitIndex) => (
-                            <li key={benefitIndex} className="text-gray-300 flex items-start">
-                              <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                            <li key={benefitIndex} className="text-muted-foreground flex items-start">
+                              <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                               {benefit}
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="border-t border-slate-700 pt-4">
-                        <h4 className="text-lg font-semibold text-white mb-3">Ready to get started?</h4>
-                        <p className="text-gray-300 mb-4">
+                      <div className="border-t border-border pt-4">
+                        <h4 className="text-lg font-semibold text-foreground mb-3">Ready to get started?</h4>
+                        <p className="text-muted-foreground mb-4">
                           Contact us to discuss how our {service.title.toLowerCase()} services can benefit your business.
                         </p>
-                        <p className="text-blue-400 font-medium">
+                        <p className="text-primary font-medium">
                           Call us at: +233 546906739
                         </p>
                       </div>

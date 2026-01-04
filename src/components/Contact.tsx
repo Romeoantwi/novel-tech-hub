@@ -36,22 +36,22 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-slate-800/50">
+    <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get In <span className="text-blue-400">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Get In <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to transform your business with innovative technology? Let's discuss your project.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="bg-slate-900/80 border-slate-700">
+          <Card className="bg-card border-border shadow-sm">
             <CardHeader>
-              <CardTitle className="text-2xl text-white">Send us a message</CardTitle>
+              <CardTitle className="text-2xl text-foreground">Send us a message</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -62,7 +62,7 @@ const Contact = () => {
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
+                      className="bg-background border-border text-foreground placeholder-muted-foreground"
                       required
                     />
                   </div>
@@ -73,7 +73,7 @@ const Contact = () => {
                       placeholder="Your Email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
+                      className="bg-background border-border text-foreground placeholder-muted-foreground"
                       required
                     />
                   </div>
@@ -83,7 +83,7 @@ const Contact = () => {
                   placeholder="Company Name"
                   value={formData.company}
                   onChange={handleInputChange}
-                  className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
+                  className="bg-background border-border text-foreground placeholder-muted-foreground"
                 />
                 <Textarea
                   name="message"
@@ -91,10 +91,10 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="bg-slate-800 border-slate-600 text-white placeholder-gray-400 resize-none"
+                  className="bg-background border-border text-foreground placeholder-muted-foreground resize-none"
                   required
                 />
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   Send Message
                 </Button>
               </form>
@@ -103,41 +103,41 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="bg-slate-900/80 border-slate-700">
+            <Card className="bg-card border-border shadow-sm">
               <CardHeader>
-                <CardTitle className="text-2xl text-white">Contact Information</CardTitle>
+                <CardTitle className="text-2xl text-foreground">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex justify-between items-start">
-                    <span className="text-gray-400 font-medium">{info.label}:</span>
+                    <span className="text-muted-foreground font-medium">{info.label}:</span>
                     {info.label === "Phone" ? (
                       <a 
                         href="tel:+233546906739" 
-                        className="text-blue-400 hover:text-blue-300 text-right font-medium transition-colors"
+                        className="text-primary hover:text-primary/80 text-right font-medium transition-colors"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <span className="text-white text-right">{info.value}</span>
+                      <span className="text-foreground text-right">{info.value}</span>
                     )}
                   </div>
                 ))}
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-blue-600 to-purple-600 border-0">
+            <Card className="bg-gradient-to-br from-primary to-secondary border-0 shadow-lg">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-primary-foreground mb-4">
                   Ready to Start Your Project?
                 </h3>
-                <p className="text-blue-100 mb-6">
+                <p className="text-primary-foreground/90 mb-6">
                   Get a free consultation and discover how we can help transform your business.
                 </p>
                 <Button 
                   variant="secondary" 
                   size="lg" 
-                  className="bg-white text-blue-600 hover:bg-gray-100"
+                  className="bg-white text-primary hover:bg-white/90"
                   onClick={() => window.open('tel:+233546906739', '_self')}
                 >
                   📞 Call +233 546906739

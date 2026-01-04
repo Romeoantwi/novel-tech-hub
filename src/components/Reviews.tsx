@@ -8,19 +8,19 @@ const Reviews = () => {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <section id="reviews" className="py-20 px-4">
+    <section id="reviews" className="py-20 px-4 bg-muted/50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Client Reviews
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-muted-foreground mb-8">
             See what our clients say about working with Phaemos Technologies
           </p>
           
           <Button
             onClick={() => setShowForm(!showForm)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3"
           >
             {showForm ? "View Reviews" : "Leave a Review"}
           </Button>
